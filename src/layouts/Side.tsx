@@ -16,15 +16,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const drawerWidth = 120;
 
-interface AppBarProps extends MuiAppBarProps {
-    open?: boolean;
-}
-
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open?: boolean;
 }>(({ theme, open }) => ({
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
     transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -55,6 +51,7 @@ export default () => {
         <>
             <Drawer
                 sx={{
+                    width: drawerWidth,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
@@ -96,19 +93,17 @@ export default () => {
                     </ListItem>
                 </List>
             </Drawer>
-            <Main open={true}  >
+            <Main style={{ background: "yellow" }} open={open}>
                 hello world
             </Main>
-            <Toolbar>
+            <Toolbar sx={{ position: "fixed" }}>
                 <IconButton
                     color="inherit"
                     onClick={handleDrawerOpen}
                     edge="start"
                     sx={{
                         mr: 2, ...(open && { display: 'none' }),
-                        position: "fixed",
-                        top: 10,
-                        border: "1px solid"
+
                     }}
                 >
                     <MenuIcon />
