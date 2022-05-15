@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MenuIcon from '@mui/icons-material/Menu';
-import Side from './layouts/Side';
-import Main from "./layouts/Main";
+import Side from './components/Side';
+import Main from "./components/Main";
 
 function App() {
   const [open, setOpen] = React.useState<boolean>(true);
