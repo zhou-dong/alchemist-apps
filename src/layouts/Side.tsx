@@ -12,9 +12,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar, // necessary for content to be below app bar
     justifyContent: 'flex-end',
+    position: "fixed",
+    bottom: 10
 }));
 
-const drawerWidth = 120;
+const drawerWidth = 100;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open?: boolean;
@@ -63,30 +65,33 @@ export default () => {
                 anchor="left"
                 open={open}
             >
+                <Typography>
+                    Alchemist
+                </Typography>
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon style={{ color: "white" }} />
                     </IconButton>
                 </DrawerHeader>
-                <Divider style={{ border: "0.5px solid white" }} />
+                <Divider style={{ border: "0.1px solid white" }} />
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton style={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body1" align='center' style={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' style={{ width: "100%" }}>
                                 Dynamic Programming
                             </Typography>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton style={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body1" align='center' style={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' style={{ width: "100%" }}>
                                 Sorting
                             </Typography>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton style={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body1" align='center' style={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' style={{ width: "100%" }}>
                                 Tree
                             </Typography>
                         </ListItemButton>
@@ -96,19 +101,15 @@ export default () => {
             <Main style={{ background: "yellow" }} open={open}>
                 hello world
             </Main>
-            <Toolbar sx={{ position: "fixed" }}>
+            <Toolbar sx={{ position: "fixed", bottom: "10px" }}>
                 <IconButton
                     color="inherit"
                     onClick={handleDrawerOpen}
                     edge="start"
-                    sx={{
-                        mr: 2, ...(open && { display: 'none' }),
-
-                    }}
+                    sx={{ ...(open && { display: 'none' }) }}
                 >
                     <MenuIcon />
                 </IconButton>
-
             </Toolbar>
         </>
 
