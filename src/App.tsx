@@ -22,7 +22,6 @@ function App() {
   return (
     <Box sx={{ display: "flex" }} style={{ height: "100%" }}>
       <Side />
-      <Main />
     </Box>
   );
 }
