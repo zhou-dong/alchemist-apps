@@ -8,20 +8,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Side from './components/Side';
 import Main from "./components/Main";
 
+const drawerWidth = 105;
+
 function App() {
+
   const [open, setOpen] = React.useState<boolean>(true);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
     <Box sx={{ display: "flex" }} style={{ height: "100%" }}>
-      <Side />
+      <Side drawerWidth={drawerWidth} open={open} setOpen={setOpen} />
+      <Main drawerWidth={drawerWidth} open={open} />
     </Box>
   );
 }

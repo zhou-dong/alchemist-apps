@@ -1,41 +1,35 @@
-import { styled, useTheme } from '@mui/material/styles';
-import { Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography } from "@mui/material";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import { styled } from '@mui/material/styles';
 import React from "react";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import MenuIcon from '@mui/icons-material/Menu';
 
-export default () => {
-    const [open, setOpen] = React.useState<boolean>(true);
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
+    open: boolean;
+    drawerWidth: number;
+}>(({ theme, open, drawerWidth }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(0),
+    transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+    }),
+}));
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
+interface Props {
+    drawerWidth: number;
+    open: boolean;
+}
 
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-
-
+export default ({ drawerWidth, open }: Props) => {
     return (
-        <div style={{
-            width: "100%",
-            // backgroundColor: "red"
-        }}>
-            <Toolbar>
-                <IconButton
-                    color="inherit"
-                    onClick={handleDrawerOpen}
-                    edge="start"
-                // sx={{ mr: 2, ...(open && { display: 'none' }) }}
-                >
-                    <MenuIcon />
-                </IconButton>
-
-                <Typography variant="h6">
-                    alchemist
-                </Typography>
-            </Toolbar>
-        </div>
+        <Main open={open} drawerWidth={drawerWidth}>
+            hello world
+        </Main>
     );
 }

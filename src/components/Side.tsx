@@ -14,38 +14,15 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-const drawerWidth = 110;
+interface Props {
+    drawerWidth: number;
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
-    open?: boolean;
-}>(({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(0),
-    transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
-    }),
-}));
+export default ({ drawerWidth, open, setOpen }: Props) => {
 
-export default () => {
     const theme = useTheme();
-    const [open, setOpen] = React.useState<boolean>(true);
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
 
     return (
         <>
@@ -63,7 +40,7 @@ export default () => {
                 anchor="left"
                 open={open}
             >
-                <Typography align="center" style={{ marginTop: 6, marginBottom: 6 }} variant="h6">
+                <Typography variant="h6" align="center" style={{ marginTop: 6, marginBottom: 6 }}>
                     Alchemist
                 </Typography>
 
@@ -73,7 +50,7 @@ export default () => {
                     bottom: 10,
                 }}>
                     <DrawerHeader>
-                        <IconButton onClick={handleDrawerClose}>
+                        <IconButton onClick={() => setOpen(false)}>
                             <ChevronLeftIcon />
                         </IconButton>
                     </DrawerHeader>
@@ -83,34 +60,32 @@ export default () => {
                 <List sx={{ padding: 0 }}>
                     <ListItem disablePadding>
                         <ListItemButton sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body1" align='center' sx={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' sx={{ width: "100%" }}>
                                 Dynamic Programming
                             </Typography>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body1" align='center' sx={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' sx={{ width: "100%" }}>
                                 Sorting
                             </Typography>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body1" align='center' sx={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' sx={{ width: "100%" }}>
                                 Tree
                             </Typography>
                         </ListItemButton>
                     </ListItem>
                 </List>
             </Drawer>
-            <Main style={{ background: "yellow" }} open={open}>
-                hello world
-            </Main>
+
             <Toolbar sx={{ position: "fixed", bottom: "10px" }}>
                 <IconButton
                     color="inherit"
-                    onClick={handleDrawerOpen}
+                    onClick={() => setOpen(true)}
                     edge="start"
                     sx={{ ...(open && { display: 'none' }) }}
                 >
