@@ -5,7 +5,7 @@ import Main from "./components/Main";
 
 const drawerWidth = 105;
 
-function App() {
+export default function () {
 
   const [open, setOpen] = React.useState<boolean>(true);
 
@@ -15,6 +15,5 @@ function App() {
       <Main drawerWidth={drawerWidth} open={open} />
     </Box>
   );
-}
 
-export default App;
+}
