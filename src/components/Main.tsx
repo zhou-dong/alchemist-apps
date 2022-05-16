@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { Route, Routes } from 'react-router-dom';
-import Home from "./Home";
+import Display from "./Display";
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open: boolean,
@@ -41,7 +41,7 @@ const IFrame = styled("iframe")(() => ({
 export default ({ drawerWidth, open }: Props) => (
     <Main open={open} drawerWidth={drawerWidth}>
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Display />} />
             <Route path="/dynamic-programming" element={<IFrame src="https://alchemist-al.com/edit-distance" />} />
         </Routes>
     </Main>
