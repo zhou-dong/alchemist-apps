@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import MaterialLink from "@mui/material/Link";
 import { styled, useTheme } from '@mui/material/styles';
 import { Divider, Drawer, IconButton, List, ListItem, ListItemButton, Toolbar, Typography } from "@mui/material";
 import { ChevronLeft, Menu } from '@mui/icons-material';
-import { green } from '@mui/material/colors';
 
 const bottom = 5;
 
@@ -30,7 +30,7 @@ const CloseDrawer: React.FC<{
     <ChevronPosition drawerWidth={drawerWidth}>
         <ChevronHolder>
             <IconButton onClick={() => setOpen(false)}>
-                <ChevronLeft />
+                <ChevronLeft color="primary" />
             </IconButton>
         </ChevronHolder>
     </ChevronPosition>
@@ -45,7 +45,7 @@ const OpenDrawer: React.FC<{
             sx={{ ...(open && { display: 'none' }) }}
             onClick={() => setOpen(true)}
         >
-            <Menu />
+            <Menu color="primary" />
         </IconButton>
     </Toolbar>
 );
@@ -57,9 +57,11 @@ interface Props {
 }
 
 const Logo = () => (
-    <Typography variant="h6" align="center" style={{ marginTop: 6, marginBottom: 6, color: green[700] }}>
-        Alchemist
-    </Typography>
+    <Toolbar style={{ overflow: "hidden", padding: 0 }}>
+        <Typography variant="h6" align="center" style={{ marginTop: 6, marginBottom: 6, width: "100%" }} color="primary">
+            alchemist
+        </Typography>
+    </Toolbar>
 );
 
 export default ({ drawerWidth, open, setOpen }: Props) => {
@@ -74,8 +76,6 @@ export default ({ drawerWidth, open, setOpen }: Props) => {
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
-                        // backgroundColor: green[700],
-                        // color: "white",
                     },
                 }}
                 variant="persistent"
@@ -84,31 +84,33 @@ export default ({ drawerWidth, open, setOpen }: Props) => {
             >
                 <Logo />
 
-
                 <Divider />
                 <List sx={{ padding: 0 }}>
                     <ListItem disablePadding>
                         <ListItemButton sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body2" align='center' sx={{ width: "100%", textAlign: "center" }}>
-
-                            </Typography>
-                            <Link
+                            <MaterialLink
+                                component={RouterLink}
                                 to={"/home"}
+                                style={{ textDecoration: 'none', width: "100%", textAlign: 'center' }}
+                                color="secondary"
                             >
                                 Dynamic Programming
-                            </Link>
+                            </MaterialLink>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body2" align='center' sx={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' sx={{ width: "100%" }}
+                                color="secondary"
+                            >
                                 Sorting
                             </Typography>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography variant="body2" align='center' sx={{ width: "100%" }}>
+                            <Typography variant="body2" align='center' sx={{ width: "100%" }}
+                                color="secondary">
                                 Tree
                             </Typography>
                         </ListItemButton>

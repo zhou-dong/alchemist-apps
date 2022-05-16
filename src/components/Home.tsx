@@ -1,9 +1,19 @@
+import { Typography } from "@mui/material"
+import { styled } from '@mui/material/styles';
 
-export default () => {
+const Center = styled("main")(() => ({
+    border: 0,
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+}));
 
-    return (
-        <div>
-            home
-        </div>
-    )
-}
+export default () => (
+    <Center>
+        <Typography align="center" variant="h1" sx={{ marginTop: "-200px" }} color="primary">
+            Alchemist
+        </Typography>
+    </Center>
+);
