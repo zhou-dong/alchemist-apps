@@ -53,7 +53,7 @@ const OpenDrawer: React.FC<{
 
 const Title = () => (
     <Toolbar>
-        <Typography variant="h6" align="center" style={{ width: "100%", fontWeight: "normal" }} color="primary">
+        <Typography variant="h6" color="secondary" align="center" style={{ width: "100%", fontWeight: "normal" }}>
             <MaterialLink
                 component={RouterLink}
                 to="/"
