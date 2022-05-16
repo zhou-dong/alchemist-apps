@@ -1,5 +1,6 @@
-import { Typography } from "@mui/material"
+import { IconProps, Typography } from "@mui/material"
 import { styled } from '@mui/material/styles';
+import { ReactElement } from "react";
 
 const Center = styled("div")(() => ({
     border: 0,
@@ -8,17 +9,27 @@ const Center = styled("div")(() => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
 }));
 
-export default () => (
+interface Props {
+    text?: string;
+    icon?: ReactElement<IconProps>;
+}
+
+export default ({ text, icon }: Props) => (
     <Center>
+        <div style={{ marginTop: "-100px" }} >
+            {icon}
+        </div>
         <Typography
             align="center"
             variant="h1"
-            sx={{ marginTop: "-200px" }}
-            color="primary"
+            sx={{ marginTop: "-100px" }}
+            color="secondary"
         >
-            Alchemist
+            {text}
         </Typography>
     </Center>
 );
