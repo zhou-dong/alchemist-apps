@@ -94,7 +94,7 @@ interface Props {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default ({ drawerWidth, open, setOpen }: Props) => (
+const Side = ({ drawerWidth, open, setOpen }: Props) => (
     <>
         <Drawer
             variant="persistent"
@@ -113,7 +113,8 @@ export default ({ drawerWidth, open, setOpen }: Props) => (
             <Items />
             <CloseDrawer drawerWidth={drawerWidth} setOpen={setOpen} />
         </Drawer>
-
         <OpenDrawer open={open} setOpen={setOpen} />
     </>
 );
+
+export default Side;
