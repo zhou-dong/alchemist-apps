@@ -2,7 +2,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import MaterialLink from "@mui/material/Link";
 import { styled } from '@mui/material/styles';
-import { Avatar, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
+import { Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
 import { ChevronLeft, Menu } from '@mui/icons-material';
 
 const bottom = 0;
@@ -75,22 +75,8 @@ const Item: React.FC<{ name: string, path: string, shortName: string }> = ({ nam
                     textDecoration: 'none',
                     textAlign: 'center',
                     width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignContent: "center",
-                    alignItems: "center",
                 }}
             >
-                <Avatar color="secondary" sx={{
-                    background: "none",
-                    color: "color",
-                    border: "1px solid white",
-                    width: 22,
-                    height: 22,
-                    fontSize: 12,
-                }}>
-                    {shortName}
-                </Avatar>
                 <ListItemText primary={name} />
             </MaterialLink>
         </ListItemButton>
@@ -126,7 +112,7 @@ const Side = ({ drawerWidth, open, setOpen }: Props) => (
             }}
         >
             <Title />
-            <Divider style={{ borderBottom: "1px solid white", marginBottom: 10 }} />
+            <Divider style={{ borderBottom: "1px solid white" }} />
             <Items />
             <CloseDrawer drawerWidth={drawerWidth} setOpen={setOpen} />
         </Drawer>
