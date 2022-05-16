@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material"
 import { styled } from '@mui/material/styles';
 
-const Center = styled("main")(() => ({
+const Center = styled("div")(() => ({
     border: 0,
     width: "100%",
     height: "100%",

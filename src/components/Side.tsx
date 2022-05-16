@@ -52,7 +52,7 @@ const OpenDrawer: React.FC<{
 );
 
 const Title = () => (
-    <Toolbar>
+    <Toolbar style={{ padding: 0 }}>
         <Typography variant="h6" align="center" style={{ width: "100%", fontWeight: "normal" }}>
             <MaterialLink
                 component={RouterLink}
@@ -67,11 +67,11 @@ const Title = () => (
 
 const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
     <ListItem disablePadding>
-        <ListItemButton>
+        <ListItemButton style={{ paddingLeft: 0, paddingRight: 0 }}>
             <MaterialLink
                 component={RouterLink}
                 to={path}
-                style={{ textDecoration: 'none', textAlign: 'left', width: "100%" }}
+                style={{ textDecoration: 'none', textAlign: 'center', width: "100%" }}
                 color="secondary"
             >
                 <ListItemText primary={name} />
