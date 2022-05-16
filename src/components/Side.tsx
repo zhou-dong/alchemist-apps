@@ -19,7 +19,7 @@ const ChevronHolder = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar, // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
 }));
 
@@ -51,10 +51,16 @@ const OpenDrawer: React.FC<{
     </Toolbar>
 );
 
-const Logo = () => (
-    <Toolbar style={{ overflow: "hidden", padding: 0 }}>
-        <Typography variant="h6" align="center" style={{ marginTop: 6, marginBottom: 6, width: "100%" }} color="primary">
-            alchemist
+const Title = () => (
+    <Toolbar>
+        <Typography variant="h6" align="center" style={{ width: "100%", fontWeight: "normal" }} color="primary">
+            <MaterialLink
+                component={RouterLink}
+                to="/"
+                style={{ textDecoration: 'none' }}
+            >
+                Alchemist
+            </MaterialLink>
         </Typography>
     </Toolbar>
 );
@@ -102,7 +108,7 @@ export default ({ drawerWidth, open, setOpen }: Props) => (
                 },
             }}
         >
-            <Logo />
+            <Title />
             <Divider />
             <Items />
             <CloseDrawer drawerWidth={drawerWidth} setOpen={setOpen} />
@@ -110,5 +116,4 @@ export default ({ drawerWidth, open, setOpen }: Props) => (
 
         <OpenDrawer open={open} setOpen={setOpen} />
     </>
-
 );
