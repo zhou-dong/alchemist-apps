@@ -1,6 +1,8 @@
 import { styled } from '@mui/material/styles';
 import { Route, Routes } from 'react-router-dom';
+import ConstructionIcon from '@mui/icons-material/Construction';
 import Display from "./Display";
+import HomeIcon from '@mui/icons-material/Home';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open: boolean,
@@ -41,8 +43,10 @@ const IFrame = styled("iframe")(() => ({
 export default ({ drawerWidth, open }: Props) => (
     <Main open={open} drawerWidth={drawerWidth}>
         <Routes>
-            <Route path="/" element={<Display />} />
+            <Route path="/" element={<Display text="Alchemist" icon={<HomeIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
             <Route path="/dynamic-programming" element={<IFrame src="https://alchemist-al.com/edit-distance" />} />
+            <Route path="/tree" element={<Display text="Tree" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
+            <Route path="/sorting" element={<Display text="Sorting" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
         </Routes>
     </Main>
 );
