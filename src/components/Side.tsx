@@ -31,7 +31,7 @@ const CloseDrawer: React.FC<{
         <Divider />
         <ChevronHolder>
             <IconButton onClick={() => setOpen(false)}>
-                <ChevronLeft color="primary" />
+                <ChevronLeft color="secondary" />
             </IconButton>
         </ChevronHolder>
     </ChevronPosition>
@@ -46,20 +46,20 @@ const OpenDrawer: React.FC<{
             sx={{ ...(open && { display: 'none' }) }}
             onClick={() => setOpen(true)}
         >
-            <Menu color="primary" />
+            <Menu color="secondary" />
         </IconButton>
     </Toolbar>
 );
 
 const Title = () => (
     <Toolbar>
-        <Typography variant="h6" color="secondary" align="center" style={{ width: "100%", fontWeight: "normal" }}>
+        <Typography variant="h6" align="center" style={{ width: "100%", fontWeight: "normal" }}>
             <MaterialLink
                 component={RouterLink}
                 to="/"
                 style={{ textDecoration: 'none' }}
             >
-                Alchemist
+                alchemist
             </MaterialLink>
         </Typography>
     </Toolbar>
