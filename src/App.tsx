@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Side from './components/Side';
 import Main from "./components/Main";
 
-const drawerWidth = 120;
+const drawerWidth = 100;
 
 export default function () {
 
