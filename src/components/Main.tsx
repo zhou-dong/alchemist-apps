@@ -1,5 +1,7 @@
 import { styled } from '@mui/material/styles';
 import React from "react";
+import { Route, Routes } from 'react-router-dom';
+import Home from "./Home";
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     open: boolean;
@@ -29,7 +31,9 @@ interface Props {
 export default ({ drawerWidth, open }: Props) => {
     return (
         <Main open={open} drawerWidth={drawerWidth}>
-            hello world
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
         </Main>
     );
 }
