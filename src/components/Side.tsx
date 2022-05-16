@@ -2,7 +2,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import MaterialLink from "@mui/material/Link";
 import { styled } from '@mui/material/styles';
-import { Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
+import { Avatar, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
 import { ChevronLeft, Menu } from '@mui/icons-material';
 
 const bottom = 0;
@@ -28,10 +28,10 @@ const CloseDrawer: React.FC<{
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }> = ({ drawerWidth, setOpen }) => (
     <ChevronPosition drawerWidth={drawerWidth}>
-        <Divider />
+        <Divider style={{ borderBottom: "1px solid white" }} />
         <ChevronHolder>
             <IconButton onClick={() => setOpen(false)}>
-                <ChevronLeft color="secondary" />
+                <ChevronLeft color="primary" />
             </IconButton>
         </ChevronHolder>
     </ChevronPosition>
@@ -59,21 +59,38 @@ const Title = () => (
                 to="/"
                 style={{ textDecoration: 'none' }}
             >
-                alchemist
+                Alchemist
             </MaterialLink>
         </Typography>
     </Toolbar>
 );
 
-const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
+const Item: React.FC<{ name: string, path: string, shortName: string }> = ({ name, path, shortName }) => (
     <ListItem disablePadding>
         <ListItemButton style={{ paddingLeft: 0, paddingRight: 0 }}>
             <MaterialLink
                 component={RouterLink}
                 to={path}
-                style={{ textDecoration: 'none', textAlign: 'center', width: "100%" }}
-                color="secondary"
+                style={{
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignContent: "center",
+                    alignItems: "center",
+                }}
             >
+                <Avatar color="secondary" sx={{
+                    background: "none",
+                    color: "color",
+                    border: "1px solid white",
+                    width: 22,
+                    height: 22,
+                    fontSize: 12,
+                }}>
+                    {shortName}
+                </Avatar>
                 <ListItemText primary={name} />
             </MaterialLink>
         </ListItemButton>
@@ -82,9 +99,9 @@ const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
 
 const Items = () => (
     <List sx={{ padding: 0 }}>
-        <Item name="Dynamic Programming" path="dynamic-programming" />
-        <Item name="Sorting" path="sorting" />
-        <Item name="Tree" path="tree" />
+        <Item name="Dynamic Programming" path="dynamic-programming" shortName="DP" />
+        <Item name="Sorting" path="sorting" shortName="S" />
+        <Item name="Tree" path="tree" shortName="T" />
     </List>
 );
 
@@ -109,7 +126,7 @@ const Side = ({ drawerWidth, open, setOpen }: Props) => (
             }}
         >
             <Title />
-            <Divider />
+            <Divider style={{ borderBottom: "1px solid white", marginBottom: 10 }} />
             <Items />
             <CloseDrawer drawerWidth={drawerWidth} setOpen={setOpen} />
         </Drawer>
