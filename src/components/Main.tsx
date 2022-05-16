@@ -1,12 +1,15 @@
 import { styled } from '@mui/material/styles';
-import React from "react";
 import { Route, Routes } from 'react-router-dom';
 import Home from "./Home";
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
-    open: boolean;
-    drawerWidth: number;
+    open: boolean,
+    drawerWidth: number,
 }>(({ theme, open, drawerWidth }) => ({
+    border: 0,
+    width: "100%",
+    height: "100%",
+    overflow: "hidden",
     flexGrow: 1,
     padding: theme.spacing(0),
     transition: theme.transitions.create('margin', {
@@ -28,12 +31,18 @@ interface Props {
     open: boolean;
 }
 
-export default ({ drawerWidth, open }: Props) => {
-    return (
-        <Main open={open} drawerWidth={drawerWidth}>
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </Main>
-    );
-}
+const IFrame = styled("iframe")(() => ({
+    border: 0,
+    width: "100%",
+    height: "100%",
+    overflow: "hidden"
+}));
+
+export default ({ drawerWidth, open }: Props) => (
+    <Main open={open} drawerWidth={drawerWidth}>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dynamic-programming" element={<IFrame src="https://alchemist-al.com/edit-distance" />} />
+        </Routes>
+    </Main>
+);
