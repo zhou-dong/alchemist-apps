@@ -12,7 +12,12 @@ const Center = styled("main")(() => ({
 
 export default () => (
     <Center>
-        <Typography align="center" variant="h1" sx={{ marginTop: "-200px" }} color="primary">
+        <Typography
+            align="center"
+            variant="h1"
+            sx={{ marginTop: "-200px" }}
+            color="primary"
+        >
             Alchemist
         </Typography>
     </Center>
