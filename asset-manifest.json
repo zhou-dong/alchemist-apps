@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/alchemist-apps/static/css/main.bc8ae95c.css",
-    "main.js": "/alchemist-apps/static/js/main.f51b9fe3.js",
+    "main.js": "/alchemist-apps/static/js/main.4e07a036.js",
     "static/js/787.d4ac5c5d.chunk.js": "/alchemist-apps/static/js/787.d4ac5c5d.chunk.js",
     "index.html": "/alchemist-apps/index.html",
     "main.bc8ae95c.css.map": "/alchemist-apps/static/css/main.bc8ae95c.css.map",
-    "main.f51b9fe3.js.map": "/alchemist-apps/static/js/main.f51b9fe3.js.map",
+    "main.4e07a036.js.map": "/alchemist-apps/static/js/main.4e07a036.js.map",
     "787.d4ac5c5d.chunk.js.map": "/alchemist-apps/static/js/787.d4ac5c5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bc8ae95c.css",
-    "static/js/main.f51b9fe3.js"
+    "static/js/main.4e07a036.js"
   ]
 }
