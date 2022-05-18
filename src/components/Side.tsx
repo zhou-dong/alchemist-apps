@@ -85,7 +85,7 @@ const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
 
 const Items = () => (
     <List sx={{ padding: 0 }}>
-        <Item name="Dynamic Programming" path="dp" />
+        <Item name="DP" path="dp" />
         <Item name="Sorting" path="sorting" />
         <Item name="Tree" path="tree" />
     </List>
