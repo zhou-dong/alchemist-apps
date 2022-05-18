@@ -65,7 +65,7 @@ const Title = () => (
     </Toolbar>
 );
 
-const Item: React.FC<{ name: string, path: string, shortName: string }> = ({ name, path, shortName }) => (
+const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
     <ListItem disablePadding>
         <ListItemButton style={{ paddingLeft: 0, paddingRight: 0 }}>
             <MaterialLink
@@ -85,9 +85,9 @@ const Item: React.FC<{ name: string, path: string, shortName: string }> = ({ nam
 
 const Items = () => (
     <List sx={{ padding: 0 }}>
-        <Item name="Dynamic Programming" path="dynamic-programming" shortName="DP" />
-        <Item name="Sorting" path="sorting" shortName="S" />
-        <Item name="Tree" path="tree" shortName="T" />
+        <Item name="Dynamic Programming" path="dp" />
+        <Item name="Sorting" path="sorting" />
+        <Item name="Tree" path="tree" />
     </List>
 );
 
