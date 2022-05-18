@@ -45,6 +45,7 @@ export default ({ drawerWidth, open }: Props) => (
         <Routes>
             <Route path="/" element={<Display text="Alchemist" icon={<HomeIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
             <Route path="/dynamic-programming" element={<IFrame src="https://alchemist-al.com/edit-distance" />} />
+            <Route path="/dp" element={<Display text="Dynamic Programming" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
             <Route path="/tree" element={<Display text="Tree" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
             <Route path="/sorting" element={<Display text="Sorting" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
         </Routes>
