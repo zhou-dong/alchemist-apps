@@ -47,7 +47,7 @@ export default ({ drawerWidth, open }: Props) => (
             <Route path="/dynamic-programming" element={<IFrame src="https://alchemist-al.com/edit-distance" />} />
             <Route path="/dp" element={<Display text="Dynamic Programming" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
             <Route path="/tree" element={<Display text="Tree" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
-            <Route path="/sorting" element={<Display text="Sorting" icon={<ConstructionIcon sx={{ fontSize: 100 }} color="secondary" />} />} />
+            <Route path="/sorting" element={<IFrame src="https://zhou-dong.github.io/alchemist-sort" />} />
         </Routes>
     </Main>
 );

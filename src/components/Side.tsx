@@ -52,17 +52,15 @@ const OpenDrawer: React.FC<{
 );
 
 const Title = () => (
-    <Toolbar style={{ padding: 0 }}>
-        <Typography variant="h6" align="center" style={{ width: "100%", fontWeight: "normal" }}>
-            <MaterialLink
-                component={RouterLink}
-                to="/"
-                style={{ textDecoration: 'none' }}
-            >
-                Alchemist
-            </MaterialLink>
-        </Typography>
-    </Toolbar>
+    <Typography variant="h6" align="center" style={{ width: "100%", fontWeight: "normal", height: "48px", lineHeight: "48px" }}>
+        <MaterialLink
+            component={RouterLink}
+            to="/"
+            style={{ textDecoration: 'none' }}
+        >
+            Alchemist
+        </MaterialLink>
+    </Typography>
 );
 
 const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
