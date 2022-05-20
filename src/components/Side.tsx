@@ -73,6 +73,7 @@ const Item: React.FC<{ name: string, path: string }> = ({ name, path }) => (
                     textDecoration: 'none',
                     textAlign: 'center',
                     width: "100%",
+                    textTransform: "uppercase",
                 }}
             >
                 <ListItemText primary={name} />
